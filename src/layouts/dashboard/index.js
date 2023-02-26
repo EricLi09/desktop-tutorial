@@ -120,7 +120,7 @@ function Dashboard() {
               <MDBox mb={3}>
                 <ReportsLineChart
                   color="success"
-                  title="daily sales"
+                  title="cold"
                   description={
                     <>
                       (<strong>+15%</strong>) increase in today sales.
@@ -135,7 +135,7 @@ function Dashboard() {
               <MDBox mb={3}>
                 <ReportsLineChart
                   color="dark"
-                  title="completed tasks"
+                  title="hot"
                   description="Last Campaign Performance"
                   date="just updated"
                   chart={tasks}
