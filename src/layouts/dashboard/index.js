@@ -42,6 +42,16 @@ function Dashboard() {
     <DashboardLayout>
       <DashboardNavbar />
       <MDBox py={3}>
+      <MDBox>
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={6} lg={8}>
+              <Projects />
+            </Grid>
+            <Grid item xs={12} md={6} lg={4}>
+              <OrdersOverview />
+            </Grid>
+          </Grid>
+        </MDBox>
         <Grid container spacing={3}>
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
@@ -105,6 +115,17 @@ function Dashboard() {
         </Grid>
         <MDBox mt={4.5}>
           <Grid container spacing={3}>
+          <Grid item xs={12} md={6} lg={4}>
+              <MDBox mb={3}>
+                <ReportsLineChart
+                  color="dark"
+                  title="hot"
+                  description="Last Campaign Performance"
+                  date="just updated"
+                  chart={tasks}
+                />            
+              </MDBox>
+            </Grid>
             <Grid item xs={12} md={6} lg={4}>
               <MDBox mb={3}>
                 <ReportsBarChart
@@ -116,6 +137,7 @@ function Dashboard() {
                 />
                  </MDBox>
             </Grid>
+            
             <Grid item xs={12} md={6} lg={4}>
               <MDBox mb={3}>
                 <ReportsLineChart
@@ -130,31 +152,11 @@ function Dashboard() {
                   chart={sales}
                 />
               </MDBox>
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <MDBox mb={3}>
-                <ReportsLineChart
-                  color="dark"
-                  title="hot"
-                  description="Last Campaign Performance"
-                  date="just updated"
-                  chart={tasks}
-                />
-             
-              </MDBox>
-            </Grid>
+              </Grid>
+            
           </Grid>
         </MDBox>
-        <MDBox>
-          <Grid container spacing={3}>
-            <Grid item xs={12} md={6} lg={8}>
-              <Projects />
-            </Grid>
-            <Grid item xs={12} md={6} lg={4}>
-              <OrdersOverview />
-            </Grid>
-          </Grid>
-        </MDBox>
+       
       </MDBox>
       <Footer />
     </DashboardLayout>
