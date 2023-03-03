@@ -15,7 +15,7 @@ class Dashboard extends Component {
             <div>
               <input
               value={this.state.inputValue}
-              onChange={this.handleInputChang.bind(this)}
+              onChange={this.handleInputChange.bind(this)}
                />
                <button>提交</button>            
               </div>            
