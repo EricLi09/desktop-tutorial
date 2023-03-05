@@ -1,10 +1,11 @@
 import React, { Component,Fragment } from 'react';
+// import './style.css'
 
 class Dashboard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputValue: 'hello!!!!',
+            inputValue: ' ',
             list: []
         }
     }
@@ -13,15 +14,28 @@ class Dashboard extends Component {
          return (
           <Fragment>
             <div>
+              <label>输入内容</label>
               <input
+              className='input'
               value={this.state.inputValue}
               onChange={this.handleInputChange.bind(this)}
                />
-               <button>提交</button>            
+               <button onClick={this.handleBtnClick.bind(this)}>提交</button>            
               </div>            
               <ul>
-              <li>学英语</li>
-              <li>Learning React</li>
+                {
+                  this.state.list.map
+                  ((item,index) => {
+                    return (
+                    <li
+                    key={index}
+                    onClick={this.handleItemDelete.bind(this, index)}
+                    >
+                      {item}
+                    </li>
+                    )         
+                  })
+                }
               </ul>
               </Fragment>
          )
@@ -32,7 +46,23 @@ class Dashboard extends Component {
         inputValue: e.target.value
       })
     }
+    handleItemDelete(index) {
+     const list = [...this.state.list];
+     list.splice(index,1)
+     this.setState({
+      list: list
+     })
+
+     console.log(index);
+    }
+    handleBtnClick() {
+        this.setState({
+          list: [...this.state.list, this.state.inputValue],
+          inputValue:''
+        })
+    }
 }
+
 
 export default Dashboard;
 
