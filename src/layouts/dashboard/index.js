@@ -35,9 +35,8 @@ class Dashboard extends Component {
          )
     }
 
-    gerTodoItem() {
+    getTodoItem() {
        return this.state.list.map((item, index) => {
-          ((item,index) => {
             return (
               <TodoItem 
               key={index}
@@ -45,25 +44,25 @@ class Dashboard extends Component {
               index={index}
               deleteItem={this.handleItemDelete}
               />
-          
-            )         
-          })
-        })
-    }
+                   )          
+                })
+              }
   
     handleInputChange(e) {
       const value = e.target.value
-      this.setState(() => {
+      this.setState(() => ({
          inputValue: value
-      });
+      }));
+      console.log('这个是value: ', value);
     }
     handleBtnClick() {
-      this.setState((prevState) => {
-        list: {...prevState.list, prevState.inputValue},
+      this.setState((prevState) => ({
+        list: [...prevState.list, prevState.inputValue],
         inputValue:''
-      });
+      }));
   }
     handleItemDelete(index) {
+      const list = [...this.state.list];
      list.splice(index, 1);
      this.setState((prevState) => {
       const list = [...prevState.list];
