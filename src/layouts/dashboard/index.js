@@ -1,12 +1,14 @@
 import React, { Component,Fragment } from 'react';
 //import './style.css'
 import TodoItem from './TodoItem';
+import Test from './Test';
 
 class Dashboard extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
+           // 当组件的state或者props发生改变的时候，render函数就会重新执行
+        this.state = {    
             inputValue: ' ',
             list: []
         }
@@ -16,6 +18,7 @@ class Dashboard extends Component {
     }
 
     render() {
+      console.log('render');
          return (
           <Fragment>
             <div>
@@ -31,6 +34,7 @@ class Dashboard extends Component {
               <ul>
                 {this.getTodoItem()}
               </ul>
+              <Test content={this.state.inputValue}/>
               </Fragment>
          )
     }
